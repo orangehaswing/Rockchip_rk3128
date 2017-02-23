@@ -170,21 +170,19 @@ __weak void __noreturn jump_to_image_no_args(struct spl_image_info *spl_image)
 	image_entry();
 }
 
-int spl_init(void)
+int spl_early_init(void)
 {
 	int ret;
 
-	debug("spl_init()\n");
-/*
- * with CONFIG_SPL_STACK_R_MALLOC_SIMPLE_LEN we set malloc_base and
- * malloc_limit in spl_relocate_stack_gd
- */
-#if defined(CONFIG_SYS_MALLOC_F_LEN) && \
-	!defined(CONFIG_SPL_STACK_R_MALLOC_SIMPLE_LEN)
+	debug("spl_early_init()\n");
+
+#if defined(CONFIG_SYS_MALLOC_F_LEN)
 #ifdef CONFIG_MALLOC_F_ADDR
 	gd->malloc_base = CONFIG_MALLOC_F_ADDR;
 #endif
+#ifdef CONFIG_SPL_STACK_R_MALLOC_SIMPLE_LEN
 	gd->malloc_limit = CONFIG_SYS_MALLOC_F_LEN;
+#endif
 	gd->malloc_ptr = 0;
 #endif
 	if (CONFIG_IS_ENABLED(OF_CONTROL) && !CONFIG_IS_ENABLED(OF_PLATDATA)) {
@@ -200,6 +198,46 @@ int spl_init(void)
 		if (ret) {
 			debug("dm_init_and_scan() returned error %d\n", ret);
 			return ret;
+		}
+	}
+	gd->flags |= GD_FLG_SPL_EARLY_INIT;
+
+	return 0;
+}
+
+int spl_init(void)
+{
+	int ret;
+
+	debug("spl_init()\n");
+/*
+ * with CONFIG_SPL_STACK_R_MALLOC_SIMPLE_LEN we set malloc_base and
+ * malloc_limit in spl_relocate_stack_gd
+ */
+	if (!(gd->flags & GD_FLG_SPL_EARLY_INIT)) {
+#if defined(CONFIG_SYS_MALLOC_F_LEN) && \
+		!defined(CONFIG_SPL_STACK_R_MALLOC_SIMPLE_LEN)
+#ifdef CONFIG_MALLOC_F_ADDR
+		gd->malloc_base = CONFIG_MALLOC_F_ADDR;
+#endif
+		gd->malloc_limit = CONFIG_SYS_MALLOC_F_LEN;
+		gd->malloc_ptr = 0;
+#endif
+
+		if (CONFIG_IS_ENABLED(OF_CONTROL) && !CONFIG_IS_ENABLED(OF_PLATDATA)) {
+			ret = fdtdec_setup();
+			if (ret) {
+				debug("fdtdec_setup() returned error %d\n", ret);
+				return ret;
+			}
+		}
+		if (IS_ENABLED(CONFIG_SPL_DM)) {
+			/* With CONFIG_SPL_OF_PLATDATA, bring in all devices */
+			ret = dm_init_and_scan(!CONFIG_IS_ENABLED(OF_PLATDATA));
+			if (ret) {
+				debug("dm_init_and_scan() returned error %d\n", ret);
+				return ret;
+			}
 		}
 	}
 	gd->flags |= GD_FLG_SPL_INIT;
