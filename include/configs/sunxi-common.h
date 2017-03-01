@@ -39,6 +39,10 @@
 #define CONFIG_SYS_THUMB_BUILD	/* Thumbs mode to save space in SPL */
 #endif
 
+#ifdef CONFIG_ARM64
+#define CONFIG_BUILD_TARGET "u-boot.itb"
+#endif
+
 /* Serial & console */
 #define CONFIG_SYS_NS16550_SERIAL
 /* ns16550 reg in the low bits of cpu reg */
