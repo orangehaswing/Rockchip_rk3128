@@ -96,7 +96,7 @@ void board_init_f(ulong dummy)
 	/*  Emmc clock generator: disable the clock multipilier */
 	rk_clrreg(GRF_EMMCCORE_CON11, 0x0ff);
 
-	ret = spl_init();
+	ret = spl_early_init();
 	if (ret) {
 		debug("spl_init() failed: %d\n", ret);
 		hang();
