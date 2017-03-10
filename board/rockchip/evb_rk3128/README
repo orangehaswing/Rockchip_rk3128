@@ -1,0 +1,69 @@
+Introduction
+============
+
+RK3128 key features we might use in U-Boot:
+* CPU: ARMv7 32bit quad-core Cortex-A7
+* IRAM: 8KB
+* DRAM: 4GB-16MB dual-channel
+* eMMC: support eMMC 4.41, suport HS200, DDR52
+* SD/MMC: support SD 3.0, MMC 4.41
+* USB: USB2.0 host port *2
+* Display: RGB/HDMI/MIPI/LVDS
+
+evb key features:
+* regulator: pwm regulator for CPU B/L
+* debug console: UART2
+
+In order to support Arm Trust Firmware(ATF), we need to use the
+miniloader from rockchip which:
+* do DRAM init
+* load and verify ATF image
+* load and verify U-Boot image
+
+Here is the step-by-step to boot to U-Boot on rk3128.
+
+Get the Source and prebuild binary
+==================================
+
+  > mkdir ~/evb_rk3128
+  > cd ~/evb_rk3128
+  > git clone https://github.com/ARM-software/arm-trusted-firmware.git
+  > git clone https://github.com/rockchip-linux/rkbin
+  > git clone https://github.com/rockchip-linux/rkflashtool
+
+Compile ATF
+===============
+
+  > cd arm-trusted-firmware
+  > make realclean
+  > make CROSS_COMPILE=arm-linux-gnu- PLAT=rk3128 bl31
+
+Compile U-Boot
+==================
+
+  > cd ../u-boot
+  > make CROSS_COMPILE=arm-linux-gnu- evb-rk3128_defconfig all
+
+Compile rkflashtool
+=======================
+
+  > cd ../rkflashtool
+  > make
+
+Package image for miniloader
+================================
+  > cd ..
+  > cp arm-trusted-firmware/build/rk3128/release/bl31.bin rkbin/rk30
+  > ./rkbin/tools/trust_merger rkbin/tools/RK3128TRUST.ini
+  > ./rkbin/tools/loaderimage --pack --uboot u-boot/u-boot-dtb.bin uboot.img
+  > mkdir image
+  > mv trust.img ./image/
+  > mv uboot.img ./image/rk3128evb-uboot.bin
+
+Flash image
+===============
+Power on(or reset with RESET KEY) with MASKROM KEY preesed, and then:
+
+  > ./rkflashtool/rkflashloader rk3128evb
+
+You should be able to get U-Boot log message in console/UART2 now.
