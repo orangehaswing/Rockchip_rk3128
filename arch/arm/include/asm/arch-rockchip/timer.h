@@ -7,6 +7,9 @@
 #ifndef __ASM_ARCH_TIMER_H
 #define __ASM_ARCH_TIMER_H
 
+#ifndef __ASSEMBLY__
+#include <linux/types.h>
+
 struct rk_timer {
 	unsigned int timer_load_count0;
 	unsigned int timer_load_count1;
@@ -18,5 +21,7 @@ struct rk_timer {
 
 void rockchip_timer_init(void);
 void rockchip_udelay(unsigned int usec);
+
+#endif
 
 #endif

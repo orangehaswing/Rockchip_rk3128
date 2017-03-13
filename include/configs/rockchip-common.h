@@ -8,6 +8,8 @@
 #define _ROCKCHIP_COMMON_H_
 #include <linux/sizes.h>
 
+#include <asm/arch/timer.h>
+
 #ifndef CONFIG_SPL_BUILD
 #include <config_distro_defaults.h>
 

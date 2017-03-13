@@ -109,6 +109,9 @@ static uint64_t notrace tick_to_time(uint64_t tick)
 
 int __weak timer_init(void)
 {
+#ifdef CONFIG_ROCKCHIP_RK3128
+	rockchip_timer_init();
+#endif
 	return 0;
 }
 
