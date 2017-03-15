@@ -5,23 +5,25 @@
  */
 
 #include <common.h>
+#include <dm.h>
+#include <asm/io.h>
+#include <asm/arch/uart.h>
+#include <asm/arch/sdram_rk3128.h>
 
 DECLARE_GLOBAL_DATA_PTR;
 
-int board_init(void)
+void get_ddr_config(struct rk3128_ddr_config *config)
 {
-	return 0;
-}
+	/* K4B4G1646Q config */
+	config->ddr_type = 3;
+	config->rank = 2;
+	config->cs0_row = 15;
+	config->cs1_row = 15;
 
-int dram_init(void)
-{
-	gd->ram_size = 0x80000000;
-	return 0;
-}
+	/* 8bank */
+	config->bank = 3;
+	config->col = 10;
 
-void dram_init_banksize(void)
-{
-	gd->bd->bi_dram[0].start = 0x0;
-	gd->bd->bi_dram[0].size = 0x7e000000;
+	/* 16bit bw */
+	config->bw = 1;
 }
-

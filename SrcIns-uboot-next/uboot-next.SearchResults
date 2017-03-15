@@ -1,0 +1,25 @@
+---- power_init_board Matches (24 in 23 files) ----
+Arndale.c (x:\u-boot-next\board\samsung\arndale):int power_init_board(void)
+Board.c (x:\u-boot-next\board\samsung\common):int power_init_board(void)
+Board.c (x:\u-boot-next\board\ti\am43xx):int power_init_board(void)
+Board_r.c (x:\u-boot-next\common):__weak int power_init_board(void)
+Board_r.c (x:\u-boot-next\common):	power_init_board,
+Cgtqmx6eval.c (x:\u-boot-next\board\congatec\cgtqmx6eval):int power_init_board(void)
+Cm_t43.c (x:\u-boot-next\board\compulab\cm_t43):int power_init_board(void)
+Colibri_imx7.c (x:\u-boot-next\board\toradex\colibri_imx7):int power_init_board(void)
+El6x.c (x:\u-boot-next\board\el\el6x):int power_init_board(void)
+Gw_ventana.c (x:\u-boot-next\board\gateworks\gw_ventana):int power_init_board(void)
+Hikey.c (x:\u-boot-next\board\hisilicon\hikey):int power_init_board(void)
+Mx6qsabreauto.c (x:\u-boot-next\board\freescale\mx6qsabreauto):int power_init_board(void)
+Mx6sabresd.c (x:\u-boot-next\board\freescale\mx6sabresd):int power_init_board(void)
+Mx6slevk.c (x:\u-boot-next\board\freescale\mx6slevk):int power_init_board(void)
+Mx6sllevk.c (x:\u-boot-next\board\freescale\mx6sllevk):int power_init_board(void)
+Mx6sxsabreauto.c (x:\u-boot-next\board\freescale\mx6sxsabreauto):int power_init_board(void)
+Mx6sxsabresd.c (x:\u-boot-next\board\freescale\mx6sxsabresd):int power_init_board(void)
+Mx6ul_14x14_evk.c (x:\u-boot-next\board\freescale\mx6ul_14x14_evk):int power_init_board(void)
+Mx7dsabresd.c (x:\u-boot-next\board\freescale\mx7dsabresd):int power_init_board(void)
+Neo.c (x:\u-boot-next\board\udoo\neo):int power_init_board(void)
+Novena.c (x:\u-boot-next\board\kosagi\novena):int power_init_board(void)
+Pico-imx6ul.c (x:\u-boot-next\board\technexion\pico-imx6ul):int power_init_board(void)
+Pmic.h (x:\u-boot-next\include\power):int power_init_board(void);
+Tqma6.c (x:\u-boot-next\board\tqc\tqma6):	 * TODO: should go to power_init_board if bus switching is

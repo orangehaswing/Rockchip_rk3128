@@ -7,3 +7,6 @@
 obj-y += rk3128.o
 obj-y += syscon_rk3128.o
 obj-y += clk_rk3128.o
+ifndef CONFIG_SPL_BUILD
+obj-y += sdram_rk3128.o
+endif

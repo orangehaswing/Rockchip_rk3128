@@ -1,0 +1,34 @@
+Binary file drivers/built-in.o matches
+drivers/block/.built-in.o.cmd:1:cmd_drivers/block/built-in.o :=  ../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-ld.bfd     -r -o drivers/block/built-in.o drivers/block/blk-uclass.o 
+drivers/block/blk-uclass.su:1:blk-uclass.c:137:12:get_desc	96	static
+drivers/block/blk-uclass.su:2:blk-uclass.c:77:18:blk_get_devnum_by_typename	112	static
+drivers/block/blk-uclass.su:3:blk-uclass.c:180:5:blk_list_part	64	static
+drivers/block/blk-uclass.su:4:blk-uclass.c:205:5:blk_print_part_devnum	48	static
+drivers/block/blk-uclass.su:5:blk-uclass.c:220:6:blk_list_devices	64	static
+drivers/block/blk-uclass.su:6:blk-uclass.c:239:5:blk_print_device_num	48	static
+drivers/block/blk-uclass.su:7:blk-uclass.c:253:5:blk_show_device	48	static
+drivers/block/blk-uclass.su:8:blk-uclass.c:306:5:blk_select_hwpart	16	static
+drivers/block/blk-uclass.su:9:blk-uclass.c:318:5:blk_dselect_hwpart	0	static
+drivers/block/blk-uclass.su:10:blk-uclass.c:323:5:blk_first_device	32	static
+drivers/block/blk-uclass.su:11:blk-uclass.c:345:5:blk_next_device	32	static
+drivers/block/blk-uclass.su:12:blk-uclass.c:364:5:blk_get_device	96	static
+drivers/block/blk-uclass.su:13:blk-uclass.c:58:18:blk_get_devnum_by_type	32	static
+drivers/block/blk-uclass.su:14:blk-uclass.c:168:5:blk_select_hwpart_devnum	48	static
+drivers/block/blk-uclass.su:15:blk-uclass.c:387:15:blk_dread	16	static
+drivers/block/blk-uclass.su:16:blk-uclass.c:274:7:blk_read_devnum	64	static
+drivers/block/blk-uclass.su:17:blk-uclass.c:408:15:blk_dwrite	16	static
+drivers/block/blk-uclass.su:18:blk-uclass.c:294:7:blk_write_devnum	64	static
+drivers/block/blk-uclass.su:19:blk-uclass.c:421:15:blk_derase	16	static
+drivers/block/blk-uclass.su:20:blk-uclass.c:434:5:blk_prepare_device	16	static
+drivers/block/blk-uclass.su:21:blk-uclass.c:443:5:blk_find_max_devnum	64	static
+drivers/block/blk-uclass.su:22:blk-uclass.c:463:5:blk_create_device	112	static
+drivers/block/blk-uclass.su:23:blk-uclass.c:495:5:blk_create_devicef	112	static
+drivers/block/blk-uclass.su:24:blk-uclass.c:518:5:blk_unbind_all	64	static
+Binary file drivers/block/built-in.o matches
+Binary file drivers/block/blk-uclass.o matches
+drivers/block/.blk-uclass.o.cmd:1:cmd_drivers/block/blk-uclass.o := ../prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-gcc -Wp,-MD,drivers/block/.blk-uclass.o.d  -nostdinc -isystem /home/zjw/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/../lib/gcc/aarch64-linux-android/4.9.x/include -Iinclude   -I./arch/arm/include -include ./include/linux/kconfig.h -D__KERNEL__ -D__UBOOT__ -Wall -Wstrict-prototypes -Wno-format-security -fno-builtin -ffreestanding -Os -fno-stack-protector -fno-delete-null-pointer-checks -g -fstack-usage -Wno-format-nonliteral -Werror=date-time -D__ARM__ -fno-pic -mstrict-align -ffunction-sections -fdata-sections -fno-common -ffixed-r9 -fno-common -ffixed-x18 -pipe -march=armv8-a -D__LINUX_ARM_ARCH__=8 -I./arch/arm/mach-rockchip/include    -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(blk_uclass)"  -D"KBUILD_MODNAME=KBUILD_STR(blk_uclass)" -c -o drivers/block/blk-uclass.o drivers/block/blk-uclass.c
+drivers/block/.blk-uclass.o.cmd:3:source_drivers/block/blk-uclass.o := drivers/block/blk-uclass.c
+drivers/block/.blk-uclass.o.cmd:5:deps_drivers/block/blk-uclass.o := \
+drivers/block/.blk-uclass.o.cmd:1559:drivers/block/blk-uclass.o: $(deps_drivers/block/blk-uclass.o)
+drivers/block/.blk-uclass.o.cmd:1561:$(deps_drivers/block/blk-uclass.o):
+drivers/block/Makefile:8:obj-$(CONFIG_BLK) += blk-uclass.o
