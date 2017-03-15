@@ -7,6 +7,7 @@
 #include <common.h>
 #include <debug_uart.h>
 #include <asm/io.h>
+#include <asm/arch/bootrom.h>
 #include <asm/arch/grf_rk3128.h>
 #include <asm/arch/hardware.h>
 #include <asm/arch/sdram_rk3128.h>

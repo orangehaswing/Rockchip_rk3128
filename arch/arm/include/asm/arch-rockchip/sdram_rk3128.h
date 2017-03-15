@@ -338,6 +338,4 @@ void get_ddr_config(struct rk3128_ddr_config *config);
 
 /* get ddr size on board */
 size_t sdram_size(void);
-
-void back_to_bootrom(void);
 #endif
