@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2015 Rockchip Electronics Co., Ltd
+ * (C) Copyright 2017 Rockchip Electronics Co., Ltd
  *
  * SPDX-License-Identifier:     GPL-2.0+
  */
@@ -36,6 +36,7 @@ void board_init_f(ulong dummy)
 		     GPIO1C2_UART2_SIN << GPIO1C2_SHIFT);
 	debug_uart_init();
 #endif
+	puts("rk3128-board-f-init:---------------------------\n");
 	rockchip_timer_init();
 	sdram_init();
 

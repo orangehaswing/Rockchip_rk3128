@@ -1,6 +1,5 @@
 /*
- * Copyright (C) 2016 Google, Inc
- * Written by Simon Glass <sjg@chromium.org>
+ * (C) Copyright 2017 Rockchip Electronics Co., Ltd
  *
  * SPDX-License-Identifier:	GPL-2.0+
  */
