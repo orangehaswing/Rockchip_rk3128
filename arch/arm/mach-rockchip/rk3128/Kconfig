@@ -18,6 +18,18 @@ config SYS_SOC
 config SYS_MALLOC_F_LEN
 	default 0x0800
 
+config SPL_DRIVERS_MISC_SUPPORT
+	default y
+
+config SPL_LIBCOMMON_SUPPORT
+	default y
+
+config SPL_LIBGENERIC_SUPPORT
+	default y
+
+config SPL_SERIAL_SUPPORT
+	default y
+
 source "board/rockchip/evb_rk3128/Kconfig"
 
 endif

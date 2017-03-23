@@ -54,9 +54,10 @@ void board_init_r(gd_t *id, ulong dest_addr)
 	while (1)
 		;
 }
-
+/*
 void hang(void)
 {
 	while (1)
 		;
 }
+*/
